@@ -2,6 +2,9 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import { setupCounter } from './counter'
 
+// import {name} from './bases/01-types';
+import { bulbasaur, pokemons } from './bases/02-objects';
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -11,6 +14,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
     </a>
     <h1>Vite + TypeScript</h1>
+    <span>${JSON.stringify(bulbasaur)}</span>
+    <span>${JSON.stringify(pokemons)}</span>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
