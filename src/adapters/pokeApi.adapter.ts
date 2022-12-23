@@ -1,6 +1,20 @@
 import axios from "axios";
 
-export class PokeAdapter {
+
+export interface HttpAdapter {
+  get<T>(url: string): Promise<T>;
+}
+
+export class PokeAdapterWithFetch implements HttpAdapter {
+  async get<T>( url: string ): Promise<T> {
+    const response = await fetch(url);
+    const data: T = await response.json();
+    return data;
+  }
+}
+
+
+export class PokeAdapter implements HttpAdapter{
 
   // Creating this attribute will ensure that if axios changes we only will need to
   // update here the name.
